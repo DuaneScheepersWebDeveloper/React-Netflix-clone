@@ -10,7 +10,7 @@ const Main = () => {
 			setMovies(res.data.results);
 		});
 	}, []);
-	console.log(movie);
+
 	const truncateString = (str, num) => {
 		if (str?.length > num) {
 			return str.slice(0, num) + '...';
