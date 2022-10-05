@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import { UserAuth } from '../context/AuthContext';
-import { db } from '../firebase';
+import { UserAuth } from '../../context/Auth/AuthContext';
+import { db } from '../../firebase/firebase';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 
 const Movie = ({ item }) => {
