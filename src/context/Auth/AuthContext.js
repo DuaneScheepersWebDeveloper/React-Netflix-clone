@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import { auth, db } from '../../firebase/firebase';
-
+import { createContext, useContext, useEffect, useState } from 'react'; //imports the various hooks from our react files
+import { auth, db } from '../../firebase/firebase'; //imports auth and our db from firebase file
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
@@ -9,25 +8,33 @@ import {
 } from 'firebase/auth';
 import { setDoc, doc } from 'firebase/firestore';
 
+//In this application I made use of useContext to allow me to move data via props
+//to different levels of th application even if its not required
+//-------------------------------------------------------
 const AuthContext = createContext();
-
-export function AuthContextProvider({ children }) {
+// made use of createContext to share values between different
+//components without having to pass props through out every level explicitly
+//(allows me to access different levels )without moving up and down
+//-------------------------------------------------------
+//  ->made use of children to create an instance in the component been used(check if something is true or false)
+//  ->
+export const AuthContextProvider = ({ children }) => {
 	const [user, setUser] = useState({});
 
-	function signUp(email, password) {
+	const signUp = (email, password) => {
 		createUserWithEmailAndPassword(auth, email, password);
 		setDoc(doc(db, 'users', email), {
 			savedShows: [],
 		});
-	}
+	};
 
-	function logIn(email, password) {
+	const logIn = (email, password) => {
 		return signInWithEmailAndPassword(auth, email, password);
-	}
+	};
 
-	function logOut() {
+	const logOut = () => {
 		return signOut(auth);
-	}
+	};
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -43,8 +50,10 @@ export function AuthContextProvider({ children }) {
 			{children}
 		</AuthContext.Provider>
 	);
-}
-
-export function UserAuth() {
+};
+//-------------------------------------------------------
+//UserAuth
+export const UserAuth = () => {
 	return useContext(AuthContext);
-}
+};
+//-------------------------------------------------------

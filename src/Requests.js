@@ -1,5 +1,5 @@
 const key = '12fcf2ca1f831423fb91338caa49bcd6';
-
+//requests is where I get my api data from.
 const requests = {
 	requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`,
 	requestTopRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${key}&language=en-US&page=1`,
@@ -9,3 +9,5 @@ const requests = {
 };
 
 export default requests;
+//Location of the api
+//https://www.themoviedb.org/

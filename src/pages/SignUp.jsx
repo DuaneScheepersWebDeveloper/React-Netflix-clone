@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/Auth/AuthContext';
+
 const SignUp = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -12,6 +13,7 @@ const SignUp = () => {
 		try {
 			await signUp(email, password);
 			navigate('/');
+			console.log(user);
 		} catch (error) {
 			console.log(error);
 		}

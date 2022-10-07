@@ -1,9 +1,19 @@
+//Note to the person marking my project this is my API key details.
+//Please Make use of them to enable the project to work using Firebase
+
+// const firebaseConfig = {
+// 	apiKey: 'AIzaSyCHJYb9St0pXflGVQ0RqjqR97-V5QaZVO0',
+// 	authDomain: 'netflix-react-portfolio-caf2f.firebaseapp.com',
+// 	projectId: 'netflix-react-portfolio-caf2f',
+// 	storageBucket: 'netflix-react-portfolio-caf2f.appspot.com',
+// 	messagingSenderId: '288084971623',
+// 	appId: '1:288084971623:web:e551331ea9c8bea91184c2',
+// };
+//========================================================================
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-
-// TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
@@ -21,14 +31,3 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 //=================================================================
-//Note to the person marking my project this is my API key details.
-//Please Make use of them to enable the project to work using Firebase
-
-// const firebaseConfig = {
-// 	apiKey: 'AIzaSyCHJYb9St0pXflGVQ0RqjqR97-V5QaZVO0',
-// 	authDomain: 'netflix-react-portfolio-caf2f.firebaseapp.com',
-// 	projectId: 'netflix-react-portfolio-caf2f',
-// 	storageBucket: 'netflix-react-portfolio-caf2f.appspot.com',
-// 	messagingSenderId: '288084971623',
-// 	appId: '1:288084971623:web:e551331ea9c8bea91184c2',
-// };

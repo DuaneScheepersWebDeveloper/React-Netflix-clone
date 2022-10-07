@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/Auth/AuthContext';
+import pic from '../../assets/images/Logonetflix.png';
 const Navbar = () => {
 	const { user, logOut } = UserAuth();
 	const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Navbar = () => {
 	return (
 		<div className="flex items-center justify-between p-4 z-[100] w-full absolute">
 			<Link to="/">
-				<h1 className="text-red-600 text-4xl font-bold">NETFLIX</h1>
+				<img src={pic} className="h-20  p-4" alt="NetflixLogo" />
 			</Link>
 			{user?.email ? (
 				<div>

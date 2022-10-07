@@ -1,5 +1,4 @@
-import React from 'react';
-import SavedShows from '../components/SavedShows/SavedShows';
+import SavedShows from '../components/SavedShows/SavedShows'; //imports SavedShows from components
 
 const Account = () => {
 	return (

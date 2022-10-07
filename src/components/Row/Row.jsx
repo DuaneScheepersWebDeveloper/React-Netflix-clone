@@ -1,21 +1,26 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import Movie from '../Movie/Movie';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import axios from 'axios'; //Imports axios from our installed axios package
+import React, { useEffect, useState } from 'react'; //Imports hooks from react
+import Movie from '../Movie/Movie'; //imports Movie
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md'; //Imports icons from our react-icons package
 
 const Row = ({ title, fetchURL, rowID }) => {
+	//Very similar to main we populate our array from data from our API
+	//we get from our API
 	const [movies, setMovies] = useState([]);
-
+	//useEffect hook runs when the Row component is called
 	useEffect(() => {
+		//used axios to make an api call with a promise
 		axios.get(fetchURL).then((response) => {
 			setMovies(response.data.results);
 		});
 	}, [fetchURL]);
-
+	//in our dependency we Add fetchURl so whenever our component changes our component is loaded again
+	//This sliderLeft function allows to scroll left of our row in our row component
 	const slideLeft = () => {
 		const slider = document.getElementById('slider' + rowID);
 		slider.scrollLeft = slider.scrollLeft - 500;
 	};
+	//This sliderLeft function allows to scroll right of our row in our row component
 	const slideRight = () => {
 		const slider = document.getElementById('slider' + rowID);
 		slider.scrollLeft = slider.scrollLeft + 500;

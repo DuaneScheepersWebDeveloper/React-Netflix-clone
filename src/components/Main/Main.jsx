@@ -1,16 +1,24 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import requests from '../../Requests';
+import axios from 'axios'; //Imports axios from our installed axios package
+import { useEffect, useState } from 'react'; //Imports hooks from react
+import requests from '../../Requests'; //imports requests from requests
 
 const Main = () => {
+	//This functionality allows us to randomly display a backdrop in our main component.
+	//There are 2 states movie and SetMovies. both are used in State in an empty array
+	//used an empty array in useState , thats where our Api is going to return data
 	const [movies, setMovies] = useState([]);
+	//this is to help us call a random movie from the api
 	const movie = movies[Math.floor(Math.random() * movies.length)];
+	//made use of the useEffect to make an api call when ever the component is in use
+	//(whenever Main is used the api gets data and returns it)
 	useEffect(() => {
+		//used axios to make an api call with a promise
 		axios.get(requests.requestPopular).then((res) => {
 			setMovies(res.data.results);
 		});
 	}, []);
-
+	console.log(movies);
+	//this function cuts back on the amount of movies we see in main
 	const truncateString = (str, num) => {
 		if (str?.length > num) {
 			return str.slice(0, num) + '...';

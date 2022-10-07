@@ -6,6 +6,7 @@ import { updateDoc, doc, onSnapshot } from 'firebase/firestore';
 import { AiOutlineClose } from 'react-icons/ai';
 
 const SavedShows = () => {
+	//Very similar to main we populate our array from data from our API
 	const [movies, setMovies] = useState([]);
 	const { user } = UserAuth();
 
