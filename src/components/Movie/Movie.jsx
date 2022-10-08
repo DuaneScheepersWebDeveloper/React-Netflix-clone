@@ -5,14 +5,14 @@ import { db } from '../../firebase/firebase';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 
 const Movie = ({ item }) => {
-	const [like, setLike] = useState(false);
-	const [saved, setSaved] = useState(false);
+	const [like, setLike] = useState(false); //state to see if a movie is liked or not
+	const [saved, setSaved] = useState(false); //state to check if a movie is saved or not
 	const { user } = UserAuth();
 
 	console.log(saved);
 
 	const movieID = doc(db, 'users', `${user?.email}`);
-
+	//an  asynchronous function saves or shows into the database
 	const saveShow = async () => {
 		if (user?.email) {
 			setLike(!like);
