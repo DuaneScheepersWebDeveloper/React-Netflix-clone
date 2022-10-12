@@ -1,6 +1,6 @@
 import Main from '../components/Main/Main'; //imports Main from components
 import Row from '../components/Row/Row'; //imports Row from components
-import requests from '../Requests'; //imports requests from components
+import requests from '../services/Requests'; //imports requests from components
 //Home is the bulk of the app. Here I have displayed the Main (Hero component)
 //as well as the various Rows . In Rows there is the fetchURL property been used
 // and this uses the fetches the requests from Requests that allow us to display the

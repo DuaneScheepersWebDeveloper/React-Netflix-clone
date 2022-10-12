@@ -1,6 +1,6 @@
 import axios from 'axios'; //Imports axios from our installed axios package
 import { useEffect, useState } from 'react'; //Imports hooks from react
-import requests from '../../Requests'; //imports requests from requests
+import requests from '../../services/Requests'; //imports requests from requests
 
 const Main = () => {
 	//This functionality allows us to randomly display a backdrop in our main component.
